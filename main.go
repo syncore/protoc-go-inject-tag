@@ -12,6 +12,7 @@ func main() {
 	flag.StringVar(&inputFile, "input", "", "path to input file")
 	flag.StringVar(&xxxTags, "XXX_skip", "", "skip tags to inject on XXX fields")
 	flag.BoolVar(&verbose, "verbose", false, "verbose logging")
+	flag.BoolVar(&withClean, "with_clean", false, "remove @inject_tag comment from .pb.go after inject done")
 
 	flag.Parse()
 

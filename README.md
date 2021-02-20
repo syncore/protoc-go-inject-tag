@@ -69,3 +69,5 @@ To skip the tag for the generated XXX_* fields, use
 `-XXX_skip=yaml,xml` flag.
 
 To enable verbose logging, use `-verbose`
+
+To remove @inject_tag comment from .pb.go after inject done, use `-with_clean`

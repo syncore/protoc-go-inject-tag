@@ -74,3 +74,9 @@ func injectTag(contents []byte, area textArea) (injected []byte) {
 	injected = append(injected, contents[area.End-1:]...)
 	return
 }
+
+func cleanTag(contents []byte, area textArea) (cleaned []byte) {
+	cleaned = append(cleaned, contents[:area.CommentStart-1]...)
+	cleaned = append(cleaned, contents[area.CommentEnd+1:]...)
+	return
+}
