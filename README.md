@@ -1,7 +1,7 @@
 # protoc-go-inject-tag
 
 [![Build Status](https://travis-ci.org/favadi/protoc-go-inject-tag.svg?branch=master)](https://travis-ci.org/favadi/protoc-go-inject-tag)
-[![Go Report Card](https://goreportcard.com/badge/github.com/favadi/protoc-go-inject-tag)](https://goreportcard.com/report/github.com/favadi/protoc-go-inject-tag)
+[![Go Report Card](https://goreportcard.com/badge/github.com/sbashilov/protoc-go-inject-tag)](https://goreportcard.com/report/github.com/sbashilov/protoc-go-inject-tag)
 [![Coverage Status](https://coveralls.io/repos/github/favadi/protoc-go-inject-tag/badge.svg)](https://coveralls.io/github/favadi/protoc-go-inject-tag)
 
 ## Why?
@@ -22,7 +22,7 @@ things like validation struct tags.
   ```
 * go support for protobuf: `go get -u github.com/golang/protobuf/{proto,protoc-gen-go}`
 
-*  `go get github.com/favadi/protoc-go-inject-tag` or download the
+*  `go get github.com/sbashilov/protoc-go-inject-tag` or download the
   binaries from releases page.
 
 ## Usage
@@ -69,3 +69,5 @@ To skip the tag for the generated XXX_* fields, use
 `-XXX_skip=yaml,xml` flag.
 
 To enable verbose logging, use `-verbose`
+
+To remove @inject_tag comment from .pb.go after inject done, use `-with_clean`
