@@ -1,8 +1,6 @@
 # protoc-go-inject-tag
 
-[![Build Status](https://travis-ci.org/favadi/protoc-go-inject-tag.svg?branch=master)](https://travis-ci.org/favadi/protoc-go-inject-tag)
-[![Go Report Card](https://goreportcard.com/badge/github.com/sbashilov/protoc-go-inject-tag)](https://goreportcard.com/report/github.com/sbashilov/protoc-go-inject-tag)
-[![Coverage Status](https://coveralls.io/repos/github/favadi/protoc-go-inject-tag/badge.svg)](https://coveralls.io/github/favadi/protoc-go-inject-tag)
+[![Go Report Card](https://goreportcard.com/badge/github.com/syncore/protoc-go-inject-tag)](https://goreportcard.com/report/github.com/syncore/protoc-go-inject-tag)
 
 ## Why?
 
