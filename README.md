@@ -20,7 +20,7 @@ things like validation struct tags.
   ```
 * go support for protobuf: `go get -u github.com/golang/protobuf/{proto,protoc-gen-go}`
 
-*  `go get github.com/sbashilov/protoc-go-inject-tag` or download the
+*  `go get github.com/syncore/protoc-go-inject-tag` or download the
   binaries from releases page.
 
 ## Usage
