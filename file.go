@@ -5,8 +5,10 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
+	"io/fs"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
 )
@@ -15,6 +17,7 @@ var (
 	rComment = regexp.MustCompile(`^//\s*@inject_tag:\s*(.*)$`)
 	rInject  = regexp.MustCompile("`.+`$")
 	rTags    = regexp.MustCompile(`[\w_]+:"[^"]+"`)
+	pbFile   = regexp.MustCompile(`\.pb.go`)
 )
 
 var withClean bool
@@ -144,4 +147,38 @@ func writeFile(inputPath string, areas []textArea) (err error) {
 		logf("file %q is injected with custom tags", inputPath)
 	}
 	return
+}
+
+func getFiles(dir string) []string {
+	paths := []string{}
+	files, err := os.ReadDir(dir)
+	if err != nil {
+		logf("read: error occurred reading files in dir: %s: %s", dir, err.Error())
+		return paths
+	}
+	for _, file := range files {
+		if err := fs.WalkDir(os.DirFS(dir), file.Name(), func(path string, d fs.DirEntry, err error) error {
+			if pbFile.Match([]byte(path)) {
+				paths = append(paths, filepath.Join(dir, path))
+				return nil
+			}
+			return nil
+		}); err != nil {
+			logf("walkdir: error occurred reading files in dir: %s: %s", dir, err.Error())
+			return paths
+		}
+	}
+	return paths
+}
+
+func process(inputFile string, xxxSkipSlice []string) error {
+	logf("processing file: %s\n", inputFile)
+	areas, err := parseFile(inputFile, xxxSkipSlice)
+	if err != nil {
+		return err
+	}
+	if err = writeFile(inputFile, areas); err != nil {
+		return err
+	}
+	return nil
 }
