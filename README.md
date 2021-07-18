@@ -69,3 +69,9 @@ To skip the tag for the generated XXX_* fields, use
 To enable verbose logging, use `-verbose`
 
 To remove @inject_tag comment from .pb.go after inject done, use `-with_clean`
+
+To inject tags into all .pb.go files in the current directory (and its sub-directories), use
+`-dirs=.`
+
+To inject tags into a directory of .pb.go files (including its sub-directories), provide a tilde separated list of directories
+`-dirs=dir1~dir2~"another dir"`
